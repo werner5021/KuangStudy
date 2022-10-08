@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+    <libraryInfo home="C:\Users\Hsiang\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.4.v20221004-1257" version="17.0.4.1"/>
+    <libraryInfo home="C:\Users\Hsiang\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149\jre" version="16.0.2"/>
+    <libraryInfo home="D:\3_Tools\Enviroment\Java\jdk1.8\jre" version="1.8.0_333">
+        <bootpath>
+            <entry path="D:\3_Tools\Enviroment\Java\jdk1.8\jre\lib\resources.jar"/>
+            <entry path="D:\3_Tools\Enviroment\Java\jdk1.8\jre\lib\rt.jar"/>
+            <entry path="D:\3_Tools\Enviroment\Java\jdk1.8\jre\lib\sunrsasign.jar"/>
+            <entry path="D:\3_Tools\Enviroment\Java\jdk1.8\jre\lib\jsse.jar"/>
+            <entry path="D:\3_Tools\Enviroment\Java\jdk1.8\jre\lib\jce.jar"/>
+            <entry path="D:\3_Tools\Enviroment\Java\jdk1.8\jre\lib\charsets.jar"/>
+            <entry path="D:\3_Tools\Enviroment\Java\jdk1.8\jre\lib\jfr.jar"/>
+            <entry path="D:\3_Tools\Enviroment\Java\jdk1.8\jre\classes"/>
+        </bootpath>
+        <extensionDirs>
+            <entry path="D:\3_Tools\Enviroment\Java\jdk1.8\jre\lib\ext"/>
+            <entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+        </extensionDirs>
+        <endorsedDirs>
+            <entry path="D:\3_Tools\Enviroment\Java\jdk1.8\jre\lib\endorsed"/>
+        </endorsedDirs>
+    </libraryInfo>
+    <libraryInfo home="C:\Users\Hsiang\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.4.v20221004-1257\jre" version="17.0.4.1"/>
+</libraryInfos>

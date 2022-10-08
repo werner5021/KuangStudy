@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="student" class="com.werner.pojo.Student">
+		<property name="name" value="葉秋"/>
+		<property name="address" ref="address"/>
+		<property name="books">
+			<array>
+				<value>卻邪</value>
+				<value>千機傘</value>
+			</array>
+		</property>
+		<property name="hobbies">
+			<list>
+				<value>近戰法師</value>
+				<value>戰士</value>
+				<value>散人</value>
+			</list>
+		</property>
+		<property name="card">
+			<map>
+				<entry key="蘇沐澄" value="沐雨澄風"></entry>
+				<entry key="方銳" value="海無量"></entry>
+				<entry key="安文逸" value="小手冰涼"></entry>
+			</map>
+		</property>
+		<property name="games">
+			<set>
+				<value>聖誕活動</value>
+				<value>明星賽</value>
+				<value>季後賽</value>
+			</set>
+		</property>
+		<property name="properties">
+			<props>
+				<prop key="暱稱1">榮耀教科書</prop>
+				<prop key="暱稱2">第一代大神</prop>
+				<prop key="暱稱3">最土的打法</prop>
+			</props>		
+		</property>
+		<property name="wife">
+			<null></null>
+		</property>
+		
+	</bean>
+	
+	<bean id="address" class="com.werner.pojo.Address">
+		<property name="address" value="興欣網吧"></property>
+	</bean>
+	
+	
+
+
+</beans>

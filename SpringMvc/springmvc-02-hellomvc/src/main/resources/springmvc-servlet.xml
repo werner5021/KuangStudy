@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 處理映射器 -->
+	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+	<!-- 處理適配器 -->
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+	<!-- 以上兩個的作用是把URL匹配Spring裡有哪個Controller能處理 -->
+	
+	<!-- 視圖解析器 : 模板引擎 -->	
+	<!--
+	视图解析器:DispatcherServlet给他的ModelAndView 
+	1.獲取ModelAndView中的數據
+	2.解析ModelAndView中的視圖名字
+	3.拼接視圖名字，找到對應的視圖 /WEB-INF/jsp/hello.jsp
+	4.將數據渲染到這個視圖上
+	-->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		  id="InternalResourceViewResolver">
+		<!--前缀 -->
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<!--后缀 -->
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!--Handler-->
+	<!-- BeanNameUrlHandlerMapping 這個處理器的特性是要根據 Bean 的名字來找，以後不會用這個處理器 -->
+	<bean id="/hello" class="com.werner.controller.HelloController"/>
+	<!-- 之後如果請求hello會直接從 Spring跳到Controller，而不會經過web.xml -->
+
+</beans>

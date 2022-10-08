@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<script type="text/javascript">
+		//編寫一個js對象 ES6
+		var user = {
+			name : "李知恩",
+			age : 29,
+			gender : "女"
+		};
+	
+		//將js對象轉換為json對象
+		var json = JSON.stringify(user);
+		console.log(json);
+	
+		console.log("==========");
+	
+		//將json對象轉換為js對象
+		var obj = JSON.parse(json);
+		console.log(obj);
+		
+	</script>
+</head>
+<body>
+</body>
+</html>

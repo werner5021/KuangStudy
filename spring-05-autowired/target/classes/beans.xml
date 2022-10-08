@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="cat" class="com.werner.pojo.Cat"/>
+	<bean id="dog1111" class="com.werner.pojo.Dog"/>
+	<bean id="dog2222" class="com.werner.pojo.Dog"/>
+	
+	<!-- 
+	byName: 會自動在容器上下文中查找，和自己對象set方法後面的值對應的beanID
+	byType: 會自動在容器上下文中查找，和自己對象屬性類型相同的bean
+	 -->
+	<bean id="people" class="com.werner.pojo.People" autowire="byType">
+		<property name="name" value="安俞真"></property>
+	</bean>
+	
+</beans>	
+

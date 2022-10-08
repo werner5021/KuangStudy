@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>	
+	<style>
+		/* id選擇器: id播須保證全局唯一
+			#id名稱{}
+			不遵循就近原則，固定的
+			id選擇器 > class選擇器 > 標籤選擇器
+		*/		
+		#A{
+			color:#ff008a;
+		}		
+		.style1{
+			color:#02ff00;
+		}		
+		h1{
+			color:#2d1dc1;
+		}
+	</style>
+</head>
+<body>
+	<h1 class="style1" id="A" >標題1</h1>
+	<h1 class="style1" id="BB">標題2</h1>
+	<h1 class="style1" id="CCC">標題3</h1>
+	<h1 id="DDDD">標題4</h1>
+	<h1>標題5</h1>
+</body>
+</html>

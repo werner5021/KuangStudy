@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="address" class="com.werner.pojo.Address">
+		<property name="address" value="伊蘇國"></property>
+	</bean>
+	
+	<bean id="student" class="com.werner.pojo.Student">
+		<!-- 第一種，普通值注入，直接使用value -->
+		<property name="name" value="亞特魯"></property>
+		<!-- 第二種，Bean注入，使用ref -->
+		<property name="address" ref="address"></property>
+		<!-- 第三種，陣列注入 -->
+		<property name="books" >
+			<array>
+				<value>菲爾佳娜之誓</value>
+				<value>怪人之夜</value>
+				<value>丹娜的殞泣日</value>
+				<value>賽爾賽塔的樹海</value>
+			</array>
+		</property>
+		<!-- 第四種，list注入 -->
+		<property name="hobbies" >
+			<list>
+				<value>冒險</value>
+				<value>打怪</value>
+				<value>升級</value>
+			</list>
+		</property>
+		<!-- 第五種，Map注入 -->
+		<property name="card" >
+			<map>
+				<entry key="模式一" value="火劍"/>
+				<entry key="模式二" value="風劍"/>
+				<entry key="模式三" value="雷劍"/>
+			</map>
+		</property>
+		<!-- 第六種，Set注入 -->
+		<property name="games">
+			<set>
+				<value>破解謎題</value>
+				<value>打聽消息</value>
+				<value>尋找寶藏</value>
+			</set>
+		</property>
+		<!-- 第七種，Properties注入 -->
+		<!-- key=value -->
+		<property name="info">			
+			<props>
+				<prop key="等級">60</prop>
+				<prop key="職業">戰士</prop>
+				<prop key="特徵">紅髮</prop>
+			</props>
+		</property>
+		<!-- 第八種，null注入 -->
+		<property name="wife">
+			<null/>
+		</property>
+		
+		
+	</bean>
+</beans>
+

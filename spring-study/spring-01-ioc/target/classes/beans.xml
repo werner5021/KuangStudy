@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="mysqlImpl" class="com.werner.dao.UserDaoMysqlImpl"/>
+    <bean id="oracleImpl" class="com.werner.dao.UserDaoOracleImpl"/>
+    
+    <bean id="UserServiceImpl" class="com.werner.service.UserServiceImpl">
+    	<!-- 
+    	ref: 引用Spring容器中，創建好的容器
+    	value: 具體的值，基本數據類型
+    	 -->
+    	<!-- 也就是把現在這整個文件當成容器 -->
+    	<property name="userDao" ref="oracleImpl"></property>
+    </bean>
+
+</beans>

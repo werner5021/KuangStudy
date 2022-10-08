@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>登入註冊</title>
+</head>
+<body>
+
+<h1>註冊</h1>
+
+<!-- 表單 
+	action: 表單提交的位置，可以是網站，也可以是一個請求處理地址
+	method: post/get 提交方式
+			get: 在url忠看到提交的內容，不安全、高效
+			post: 較安全、可傳輸大文件	 
+-->
+<form method="get" action="1_我的第一個網頁.html">
+	
+	<!-- 文本輸入框
+		input type="text"  
+		value="全汝彬"   預設初始值
+		maxlength="8"   最長能寫幾個字符
+		size="20"       文本框的長度
+	-->
+	<p>名字: <input type="text" name="username" value="admin" readonly="readonly"></p>
+	<p>名字2: <input type="text" name="username2" placeholder="請輸入用戶名" required="required"></p>
+	<p>密碼: <input type="password" name="password" hidden="" value="123456"></p> <!-- 隱藏後，用123456當預設值 -->
+	
+	<!--  單選框標籤
+		input type="radio"
+		value: 單選框的值
+		name: 表示群組
+		radio的選項要加入同一個組才會出現單選，也就是name一樣 
+	-->
+	<p>性別: 
+		<input type="radio" value="boy" name="gender" checked="checked" disabled="disabled"/>男
+		<input type="radio" value="girl" name="gender"/>女
+	</p>
+	
+	<!-- 多選框標籤
+		input type="checkbox"
+		name也必須一樣
+	-->	
+	<p>嗜好
+		<input type="checkbox" value="sleep" name="hobbies">睡覺
+		<input type="checkbox" value="read" name="hobbies" checked="checked">看書
+		<input type="checkbox" value="music" name="hobbies">聽音樂
+	</p>
+	
+	<!-- 按鈕
+		input type="button"  普通按鈕
+		input type="image"   圖像按鈕
+		input type="submit"  提交按鈕
+		input type="reset"   重置
+	 -->
+	<p>按鈕:
+		<input type="button" name="btn1" value="點擊變長">	
+		<input type="image" src="../resources/images/1.jpg"> <!-- 圖片按鈕跟提交效果一樣 -->
+	</p>
+	
+	<!-- 下拉框，列表框 	
+	-->
+	<p>下拉框:
+		<select name="列表名稱">
+			<option value="USA">美國</option>
+			<option value="Japan">日本</option>
+			<option value="Korea">南韓</option>
+			<option value="Turkey" selected="selected">土耳其</option>
+			<option value="Singapore">新加坡</option>
+		</select>
+	</p>
+	
+	<!-- 文本域
+		textarea
+	 -->
+	<p>反饋:
+		<textarea name="textarea" rows="10" cols="50">test...</textarea>
+	</p>
+	
+	<!-- 文件域 
+		input type="file" 
+		name="files
+	-->
+	<p>
+		<input type="file" name="files">
+		<input type="button" value="上傳" name="upload">
+	</p>
+	
+	<!-- 以下是會進行驗證的 -->
+	<!-- 郵件驗證 -->
+	<p>電子郵件:
+		<input type="email" name="email">
+	</p>
+	<!-- URL -->
+	<p>URL:
+		<input type="url" name="url">
+	</p>
+	<!-- 數字 -->
+	<p>商品數量:
+		<input type="number" name="number" max="100" min="0" step="1">
+	</p>
+	
+	<!-- 滑塊 -->
+	<p>音量:
+		<input type="range" name="voice" min="0" max="100"/>
+	</p>
+	<!-- 搜索框 -->
+	<p>搜索:
+		<input type="search" name="search" >
+	</p>
+	
+	<!-- 增強滑鼠可用性
+	點label文字，會自動跳到for指向的id裡 -->
+	<p>
+		<label for="mark">點我試試</label>
+		<input type="text" id="mark">
+	</p>
+	
+	<p>自定義郵箱:
+		<input type="text" name="diymail" pattern="^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$">
+	</p>
+	
+	<p>
+		<input type="submit" value="提交">
+		<input type="reset" value="清空">
+	</p>
+</form>
+</body>
+</html>

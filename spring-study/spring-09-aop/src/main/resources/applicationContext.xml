@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+	
+	<!-- 註冊bean -->
+	<bean id="userService" class="com.werner.service.UserServiceImpl"/>
+	<bean id="log" class="com.werner.log.Log"/>
+	<bean id="afterLog" class="com.werner.log.AfterLog"/>
+	
+	<!-- 方式一:使用原生 Spring API 介面 -->
+	<!-- 配置AOP: 導入AOP的約束 -->
+	<aop:config>
+		<!-- 切入點: expression 表達式、execution (要執行的位置 * * * * *)-->
+		<aop:pointcut id="pointcut" expression="execution(* com.werner.service.UserServiceImpl.*(..))" />
+		
+		<!-- 執行環繞增加 -->
+		<aop:advisor advice-ref="log" pointcut-ref="pointcut"/> <!-- 執行環繞增加的時候，引用log。把log這個類切入到execution的方法上面 -->
+		<aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>
+		
+	</aop:config>
+	
+	<!-- 方式二: 自定義類-->
+	<bean id="diy" class="com.werner.diy.DiyPointCut"/>
+	
+	<aop:config>
+	<!-- 自定義切面， ref要引用的類 -->
+		<aop:aspect ref="diy">
+			<!-- 切入點 -->
+			<aop:pointcut id="point" expression="execution(* com.werner.service.UserServiceImpl.*(..))" />
+			<!-- 通知 -->
+			<aop:before method="before" pointcut-ref="point"/> <!-- 在這之前執行before方法，在上面定義的切入點point執行-->
+			<aop:after method="after" pointcut-ref="point"/>
+		</aop:aspect>
+	</aop:config>
+	
+	<!-- 方式三 -->
+	<bean id="annotationPointCut" class="com.werner.diy.AnnotationPointCut"/>
+	<!-- 開啟註解支持 
+	JDK(默認): proxy-target-class="false" 
+	cglib: proxy-target-class="true"
+	-->
+	<aop:aspectj-autoproxy proxy-target-class="false"/>
+	<!-- proxy-target-class 這個參數一般不用改，也不用寫出來，默認即可 -->
+	
+</beans>
+

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd
+    	http://www.springframework.org/schema/tx
+        https://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- DataSource: ä½¿ç”¨ Spring??„æ•¸??šå?ƒæ›¿??›Mybatis??„é?ç½® c3p0 dbcp drwid ?™è£¡ä½¿ç”¨Spring??ä?›ç?„JDBC: 
+		org.springframework.jdbc.datasource -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DiverManager">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8" />
+		<property name="username" value="root" />
+		<property name="password" value="12345678" />
+	</bean>
+
+	<!-- sqlSessionFactory -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- ç¶å?? Mybatis ??ç½®??‡ä»¶ -->
+		<property name="configLocation"
+			value="classpath:mybatis-config.xml" />
+		<property name="mapperLocations"
+			value="calsspath:com/werner/mapper/*.xml" />
+	</bean>
+
+	<!-- SqlSessionTemplate: å°±æ˜¯??‘å?‘ä½¿?”¨??„sqlSession -->
+	<bean id="sqlSession"
+		class="org.mybatis.spring.sqlSessionTemplate">
+		<!-- ?ª?ƒ½ä½¿ç”¨æ§‹é? å™¨æ³¨å…¥sqlSessionFactoryï¼Œå? ç‚ºå®ƒæ?’æ?‰set?–¹æ³? -->
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+
+	<!-- ??ç½®?²??Žå?ä?‹å?? -->
+	<!-- ?²å¾—transactionManagerï¼Œä?Ÿçµ¦æ§‹é? å™¨ -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<constructor-arg ref="dataSource" />
+		<!-- ä¹Ÿèƒ½?™æ¨£å¯? <property name="dataSource" ref="dataSource"></property> -->
+	</bean>
+
+	<!-- çµå?ˆAOP??‚ç¾äº‹å?™ç?„ç?”å…¥ -->
+	<!-- ??ç½®äº‹å?™é?šçŸ¥(Springä¾†å??) -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<!-- çµ¦å“ªäº›æ–¹æ³•é?ç½®äº‹å?? -->
+		<!-- ??ç½®äº‹å?™ç?„å‚³?’­?‰¹?? propagation-->
+		<tx:attributes>
+			<tx:method name="add" propagation="REQUIRED"/>
+			<tx:method name="delete" propagation="REQUIRED"/>
+			<tx:method name="update" propagation="REQUIRED"/>
+			<tx:method name="query" read-only="true"/>  <!-- ?Ÿ¥ä¸ç”¨?›´?”¹äº‹å?™ï?Œè¨­å®šå”¯è®? -->
+			<tx:method name="*" propagation="REQUIRED"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<!-- ??ç½®äº‹å?™å?‡å…¥ -->
+	<aop:config>
+		<aop:pointcut id="txPointCut" expression="execution(* com.werner.mapper.*.*(..))"/>
+		<aop:advisor advice-ref="txAdvice"/>
+	</aop:config>
+	
+	
+	
+
+</beans>
+

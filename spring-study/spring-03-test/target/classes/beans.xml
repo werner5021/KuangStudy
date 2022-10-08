@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans   xmlns="http://www.springframework.org/schema/beans" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans 
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   
+	<bean id="user" class="com.werner.pojo.User">
+		<property name="name" value="無參"></property>
+	</bean>
+	
+	<bean id="user1" class="com.werner.pojo.User">
+		<constructor-arg index="0" value="有參(索引)"></constructor-arg>
+	</bean>
+	
+	<bean id="user2" class="com.werner.pojo.User">
+		<constructor-arg name="name" value="有參(名)"></constructor-arg>
+	</bean>
+   	
+	<bean id="user3" class="com.werner.pojo.User">
+   		<constructor-arg type="java.lang.String" value="有參(類別)"></constructor-arg>
+   	</bean>
+   	
+   	<alias name="user" alias="userNew"/>
+     
+</beans>

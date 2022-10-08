@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	
+	<!-- 避免使用 class、id選擇器 -->
+	<style>
+	
+		/*選中ul的第一個子元素*/
+		ul li:first-child {
+			background: green;
+		}
+		/*選中ul的最後一個子元素*/
+		ul li:last-child {
+			background: orange;
+		}		
+		
+		/*選中第一個p元素(p1): 定位到父元素，選擇當前的第一個元素
+		選中當前p元素的父級元素，選中父級元素的第一個，並且是當前元素才生效，用"順序"選擇*/
+		p:nth-child(1){           /*因為第一個是h1，所以用p去選會選不到*/
+			background: orange;
+		}
+		p:nth-child(2){           /*因為第二個是p，所以選的到*/
+			background: blue;
+		}
+		
+		/*選中父元素，下的p元素的第二個，用"類型"選擇*/
+		p:nth-of-type(2) {        /*選擇父元素中，第二個類型為p的元素*/
+			background: yellow;
+		}
+		
+		a:hover {
+			background: gray;
+		}	
+	</style>
+</head>
+<body>
+<h1>h1</h1>
+<p>p1</p>
+<p>p2</p>
+<p>p3</p>
+<ul>
+	<li>li1</li>
+	<li>li2</li>
+	<li>li3</li>	
+</ul>
+
+<a href="">a標籤</a>
+
+</body>
+</html>

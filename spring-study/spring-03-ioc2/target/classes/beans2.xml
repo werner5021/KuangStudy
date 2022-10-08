@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="user" class="com.werner.pojo.User">
+		<property name="name" value="知恩"></property>
+	</bean>
+	
+	<!-- 第一種，下標賦值 -->
+	<bean id="user1" class="com.werner.pojo.User">
+		<constructor-arg index="0" value="有參測試1"/>
+	</bean>
+	
+	<!-- 第二種，通過類型創建 -->
+	<!-- 不建議使用，如果有多個同類型就不能用 -->
+	<!-- 基本類型直接用，引用類型要寫完整 -->
+	<bean id="user2" class="com.werner.pojo.User">
+		<constructor-arg type="java.lang.String" value="有參測試2"/>
+	</bean>
+	
+	<!-- 第三種，直接通過參數名字設置 -->	
+	<bean id="user3" class="com.werner.pojo.User">
+		<constructor-arg name="name" value="有參測試3"/>
+		<!-- 這裡也可以用ref去引用別的id -->
+		<!--  <constructor-arg ref="other"/> -->
+	</bean>
+	<!-- <bean id="other" class="com.werner.pojo...."> -->
+	
+	<!-- 
+	id: bean的唯一標示符，相當於對象名
+	class: bean對象所對應的全現定名 → 包名+類名
+	name: 也是別名，而且可以同時取多個別名，可以用空格、逗號、分號分割
+	 -->
+	<bean id="userT" class="com.werner.pojo.UserT" name="nameT2 u2,u3">		
+		<property name="name" value="JISOO"></property>
+	</bean>
+	
+	<!-- 別名，如果添加了別名，我們也可以使用別名取到這個物件 -->
+	<alias name="user" alias="userNew"/>
+	
+</beans>
+

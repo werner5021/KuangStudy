@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- configuration ? ¸å¿ƒé?ç½®??‡ä»¶ -->
+<configuration>
+	
+	<typeAliases>
+		<package name="com.werner.pojo"/>
+	</typeAliases>
+	
+	<!-- ???Ž¥?•¸??šåº«??? DataSource ?”± spring ç®¡ç?†ä?†ï?Œæ?ä»¥é?™è£¡ä¸ç”¨å¯? -->
+	<!--  
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="com.nysql.jdbc.Driver" />
+				<property name="url"
+					value="jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8" />
+				<property name="username" value="root" />
+				<property name="password" value="12345678" />
+			</dataSource>
+		</environment>
+	</environments>
+	-->
+	
+	<!-- sqlSessionFactory ?”± spring ç®¡ç?†ä?†ï?Œæ?ä»¥é?™è£¡ä¸ç”¨å¯?  -->	
+	<!--  
+	<mappers>
+		<mapper class="com.werner.UserMapper"/>
+	</mappers>
+	-->
+	
+	
+	
+	
+
+</configuration>

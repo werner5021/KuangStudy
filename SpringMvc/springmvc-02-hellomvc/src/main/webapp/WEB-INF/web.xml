@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="4.0"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+	<!--1.注册DispatcherServlet -->
+	<!-- 配置 DispatcherServlet: 這個是 SpringMVC 的核心: 請求分發器 or 前端控制器 --> 
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- DispatcherServlet 要綁定 Spring(MVC) 的配置文件 -->
+		<!--关联一个springmvc的配置文件:【servlet-name】-servlet.xml -->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>  <!-- 只有一個地址所以用contextConfigLocation -->
+			<param-value>classpath:springmvc-servlet.xml</param-value>  <!-- classpath 當前類的路徑 -->
+		</init-param>
+		<!-- 啟動級別 1 → 跟服務器一起啟動 -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<!-- 
+	在SpringMVC中
+	/:  只匹配所有的請求，不匹配jsp頁面
+	/*: 匹配所有的請求，包括jsp頁面 
+	到jsp頁面就是完善的頁面，應該直接返回給用戶，如果用/*匹配jsp頁面，jsp頁面會再走一遍DispatcherServlet，再產生一個xxx.jsp.jsp再無限嵌套
+	 -->
+	<!--/ 匹配所有的请求；（不包括.jsp） -->
+	<!--/* 匹配所有的请求；（包括.jsp） -->
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+</web-app>

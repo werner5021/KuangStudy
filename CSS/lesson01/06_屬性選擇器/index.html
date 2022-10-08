@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	.demo a{
+		float: left;
+		display: block;
+		height: 50px;
+		width: 50px;
+		border-radius: 10px;
+		background: navy;
+		text-align: center;
+		color: gainsboro;
+		text-decoration: none;  /*去除下底線*/
+		margin-right: 5px;
+		font: bold 20px/50px Arial;
+	}
+
+	/* 1. 屬性名
+	   2. 屬性名 = 屬性值(可以用正則)  
+	   = 絕對等於
+	   *= 包含這個元素
+	   ^= 以這個開頭
+	   $= 以這個結尾	   
+	 */
+	 	
+	/* 選中存在id屬性的元素  a[]{} */
+/* 	a[id]{ */
+/* 		background: yellow; */
+/* 	} */
+
+	/* id=first的元素 */
+/* 	a[id=first]{ */
+/* 		background: yellow; */
+/* 	} */
+
+	/* class中有links的元素 */
+/* 	a[class*="links"]{ */
+/* 		background: yellow; */
+/* 	} */
+
+	/* 選中href中，以http開頭的元素 */
+/* 	a[href^=http]{ */
+/* 		background: yellow; */
+/* 	} */
+	
+	/* 選中href中，以pdf結尾的元素 */
+	a[href$=pdf]{
+		background: yellow; 
+	}
+</style>
+
+  </head>
+<body>
+	<p class="demo">
+		<a href="http://www.baidu.com" class="links item first" id="first">1</a>
+		<a href="http://www.google.com" class="links item active" target="_blank" title="test2">2</a>
+		<a href="images/123.html" class="links item">3</a>
+		<a href="images/123.png" class="links item">4</a>
+		<a href="images/123.jpg" class="links item">5</a>
+		<a href="abc" class="links item">6</a>
+		<a href="/a.pdf" class="links item">7</a>	
+		<a href="/abc.pdf" class="links item">8</a>	
+		<a href="abc.doc" class="links item">9</a>	
+		<a href="abcd.doc" class="links item last">10</a>	
+	</p>
+</body>
+</html>

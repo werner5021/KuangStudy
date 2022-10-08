@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>iframe測試體驗無刷新</title>
+<script>
+	function go(){
+		var url = document.getElementById("url").value;
+		//js中不成文的規定，所有的值、變量提前獲取
+		document.getElementById("iframe1").src=url;
+	}
+</script>
+
+</head>
+<body>
+
+	<!-- 讓用戶點擊按鈕產生事件 -->
+	<div>
+		<p>請輸入地址:</p>
+		<p>
+			<!-- value給預設值 -->
+			<input type="text" id="url" value="https://www.books.com.tw">			 
+			<input type="button" value="提交" onclick="go()">
+		</p>
+	</div>
+
+	<!-- 無屬性的彈窗 -->
+	<div>
+		<iframe id="iframe1" style="width: 100%; height: 500px"></iframe>
+	</div>
+
+</body>
+</html>
